@@ -20,8 +20,7 @@ jobs:
       with:
         python-version: '3.10'  # 指定你需要的Python版本
     
-    - name: Set up Python
-      run: pip install requests
-	      
+    - name: Install dependencies
+      run: pip install requests      
     - name: Run Python script
       run: python send_msg.py '133456' 'test' # 替换为你的脚本文件名
