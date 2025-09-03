@@ -1,0 +1,24 @@
+name: Run Python Script Daily
+
+on:
+  # 定时触发：使用UTC时间，每天00:00（即北京时间08:00）运行
+  schedule:
+    - cron: '0 * * * * ?'  # 分钟 小时 日 月 星期
+  # 允许手动触发
+  workflow_dispatch:
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'  # 指定你需要的Python版本
+
+    - name: Run Python script
+      run: python send_msg.py '133456' 'test' # 替换为你的脚本文件名
