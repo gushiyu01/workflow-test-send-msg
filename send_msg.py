@@ -33,5 +33,3 @@ def send_wx_msg(to_user, content):
 
 
 print(send_wx_msg('GuShiYu', '去抢茅台啊，都是钱，签到！'))
-print(send_wx_msg('TianTian', '田大妞，抢茅台了'))
-print(send_wx_msg('HuaHua', '田二妞，抢茅台了'))
