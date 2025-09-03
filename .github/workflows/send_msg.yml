@@ -3,7 +3,7 @@ name: Run Python Script Daily
 on:
   # 定时触发：使用UTC时间，每天00:00（即北京时间08:00）运行
   schedule:
-    - cron: '*/10 * * * *'  # 分钟 小时 日 月 星期
+    - cron: '0 * * * *'  # 分钟 小时 日 月 星期
   # 允许手动触发
   workflow_dispatch:
 
