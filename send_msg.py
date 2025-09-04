@@ -1,7 +1,5 @@
 from datetime import datetime
-from pprint import pprint
 import httpx
-import os
 
 # 夸克 13523511140
 kps = 'AAT4Mh%2BRrlWjv%2F93cjne%2FRhUo55JXDqlFITJk13SJzKoGgE9xF%2Fm4xhsd0q1UN51qeRj7Y5IEn0vPD2TLcOM3dXrbvhq1WMY7CyrCNM32tOgyA%3D%3D'
@@ -27,7 +25,7 @@ def query_balance():
     }
     response = httpx.get(url=url, params=querystring)
     response.raise_for_status()
-    pprint(response.json())
+    print(response.json())
 
 
 def human_unit(bytes_: int) -> str:
