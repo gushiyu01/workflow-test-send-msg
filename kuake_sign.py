@@ -19,12 +19,14 @@ steps = [
     {
 "kps":"AAT4Mh%2BRrlWjv%2F93cjne%2FRhUo55JXDqlFITJk13SJzKoGgE9xF%2Fm4xhsd0q1UN51qeRj7Y5IEn0vPD2TLcOM3dXrbvhq1WMY7CyrCNM32tOgyA%3D%3D",
 "sign":"AAQKX2OQwZJ%2Bfp7%2BRGFwFfoR2MRictrBs9GQTgDInprQ8anr6kuGCr0yMPVm3sKVbRs%3D",
-"vcode":"1756777261986"
+"vcode":"1756777261986",
+"tel":"13523511140"
 },
 {
 "kps":"AARHgzNN8nLz%2FldvKznL862irujZ0NUR3D89yM7%2F%2FWJmhu1ErS8TKDJJrhU9y%2B5n7OWTHs5%2F%2By%2BehmdOmV0RhqKRpD4NmfteNtJdEUDOFiDqgNX9QwuWvfB24JY%2BlxNCxn8%3D",
 "sign":"AARCRuziwgYxYKG%2F88ErLD04BtVhHtMygMZDavvuqCUtBSGIGSCV5CAbq2axUuj3JFU%3D",
-"vcode":"1755250298810"
+"vcode":"1755250298810",
+"tel":"19603717135"
 }
 ]
 
@@ -177,3 +179,4 @@ if __name__ == "__main__":
         m1 = checkin(kps, sign, vcode)
         m2 = user_info(kps, sign, vcode)
         send_wx_msg("GuShiYu", msg + m1 + "\n" + m2)
+        print(step['tel'] + "签到完成")
