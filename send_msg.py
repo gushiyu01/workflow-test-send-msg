@@ -1,5 +1,19 @@
 from datetime import datetime
 import httpx
+import json
+
+
+# 微信企业号消息推送
+# 企业ID
+corp_id = 'wwf6aea27e2d98b2d0'
+# 创建应用的secret
+corp_secret = 'ujWgFTJoozit4uPZdLGrmWZgzrxGG7rJOkNY-bTXzHE'
+# 创建应用的id
+agent_id = '1000002'
+# 获取access_token的url
+token_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
+# 发送消息的url
+send_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send'
 
 # 夸克 13523511140
 kps = 'AAT4Mh%2BRrlWjv%2F93cjne%2FRhUo55JXDqlFITJk13SJzKoGgE9xF%2Fm4xhsd0q1UN51qeRj7Y5IEn0vPD2TLcOM3dXrbvhq1WMY7CyrCNM32tOgyA%3D%3D'
@@ -11,7 +25,23 @@ vcode = '1756777261986'
 # vcode = '1755250298810'
 
 
+def send_wx_msg(to_user, content):
+    res = httpx.get(token_url + "?corpid=" + corp_id + "&corpsecret=" + corp_secret)
 
+    json_loads = json.loads(res.text)
+    token = json_loads.get('access_token')
+
+    params = {
+        'touser': to_user,
+        'msgtype': 'text',
+        'agentid': agent_id,
+        'text': {
+            'content': content
+        }
+    }
+
+    post = httpx.post(url=send_url + "?access_token=" + token, json=params).text
+    return post
 
 
 def query_balance():
@@ -78,8 +108,8 @@ def user_info():
         notify_message += (f"会员类型：{data['member_type']}, 过期时间：{super_vip_exp_at}, 总计容量："
                            f"{human_unit(data['total_capacity'])}, 使用容量：{human_unit(data['use_capacity'])}, "
                            f"使用百分比：{data['use_capacity'] / data['total_capacity'] * 100:.2f}%")
-        print(notify_message)
-
+        msg = notify_message
+    return msg
 
 def checkin():
     """
@@ -115,13 +145,16 @@ def checkin():
         if response.json()["code"] != 0:
             print(response.json()["message"])
         else:
-            print(
-                f"签到成功，获得容量: {human_unit(response.json()['data']['sign_daily_reward'])}"
-            )
+            msg = f"签到成功，获得容量: " + human_unit(response.json()['data']['sign_daily_reward'])
+            
     else:
-        print(f"已经签到，请勿重复签到")
+        msg = f"已经签到，请勿重复签到"
 
+    return msg
 
 if __name__ == "__main__":
-    checkin()
-    user_info()
+    m0 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    msg = f"签到时间：{m0}\n"
+    m1 = checkin()
+    m2 = user_info()
+    send_wx_msg("GuShiYu", msg + m1 + "\n" + m2)
