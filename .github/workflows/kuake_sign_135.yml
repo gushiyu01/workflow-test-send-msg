@@ -23,4 +23,4 @@ jobs:
       - name: Install dependencies
         run: pip install httpx
       - name: Run Python script
-        run: python send_msg.py
+        run: python kuake_sign.py
