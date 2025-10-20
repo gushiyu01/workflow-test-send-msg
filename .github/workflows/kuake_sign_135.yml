@@ -6,6 +6,10 @@ on:
     - cron: "0 6 * * *" # 分钟 小时 日 月 星期
   # 允许手动触发
   workflow_dispatch:
+  
+  # 3. 允许通过 GitHub API 触发
+  repository_dispatch:
+    types: [run-python-script]  # 自定义事件类型名称，可任意命名
 
 jobs:
   run-python-script:
