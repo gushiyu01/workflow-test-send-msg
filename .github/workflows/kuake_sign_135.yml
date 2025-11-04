@@ -27,8 +27,9 @@ jobs:
       - name: Install dependencies
         run: pip install httpx
       - name: Run Python script
-        run: python kuake_sign.py
         env:
           AGENTID: ${{ secrets.AGENTID }}
           CORPID: ${{ secrets.CORPID }}
           CORPSECRET: ${{ secrets.CORPSECRET }}
+        run: python kuake_sign.py
+        
