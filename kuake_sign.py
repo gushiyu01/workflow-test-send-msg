@@ -1,7 +1,7 @@
 from datetime import datetime
 import httpx
 import json
-import sys
+import os
 
 
 # 微信企业号消息推送
@@ -12,9 +12,9 @@ import sys
 # corp_id = 'wwf6aea27e2d98b2d0'
 # corp_secret = 'ujWgFTJoozit4uPZdLGrmWZgzrxGG7rJOkNY-bTXzHE'
 # agent_id = '1000002'
-corp_id = sys.argv[1]
-corp_secret = sys.argv[2]
-agent_id = sys.argv[3]
+corp_id = os.getenv("AGENTID")
+corp_secret = os.getenv("SECRET")
+agent_id = os.getenv("AGENTID")
 
 
 
