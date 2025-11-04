@@ -1,15 +1,23 @@
 from datetime import datetime
 import httpx
 import json
+import sys
 
 
 # 微信企业号消息推送
 # 企业ID
-corp_id = 'wwf6aea27e2d98b2d0'
 # 创建应用的secret
-corp_secret = 'ujWgFTJoozit4uPZdLGrmWZgzrxGG7rJOkNY-bTXzHE'
 # 创建应用的id
-agent_id = '1000002'
+
+# corp_id = 'wwf6aea27e2d98b2d0'
+# corp_secret = 'ujWgFTJoozit4uPZdLGrmWZgzrxGG7rJOkNY-bTXzHE'
+# agent_id = '1000002'
+corp_id = sys.argv[1]
+corp_secret = sys.argv[2]
+agent_id = sys.argv[3]
+
+
+
 # 获取access_token的url
 token_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
 # 发送消息的url
