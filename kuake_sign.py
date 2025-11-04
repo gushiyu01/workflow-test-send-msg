@@ -176,6 +176,9 @@ def checkin(kps, sign, vcode):
     return msg
 
 if __name__ == "__main__":
+    print(corp_id)
+    print(corp_secret)
+    print(agent_id)
     # 遍历 steps 进行多账号签到
     for step in steps:
         kps = step['kps']
