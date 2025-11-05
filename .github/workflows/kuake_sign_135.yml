@@ -26,7 +26,9 @@ jobs:
 
       - name: print args
         run: |
-          echo "args: ${{ secrets.AGENTID }}"
+          echo "args: ${{ secrets.AGENT_ID }}"
+          echo "args: ${{ secrets.ID }}"
+          echo "args: ${{ secrets.SECRET }}"
 
       # - name: Install dependencies
       #   run: pip install httpx
