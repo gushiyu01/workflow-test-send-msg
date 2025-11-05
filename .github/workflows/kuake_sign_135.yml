@@ -29,7 +29,7 @@ jobs:
       - name: Run Python script
         env:
           AGENTID: ${{ secrets.AGENTID }}
-          CORPID: ${{ secrets.CORPID }}
-          CORPSECRET: ${{ secrets.CORPSECRET }}
+          CORPID: ${{ secrets.ID }}
+          CORPSECRET: ${{ secrets.SECRET }}
         run: python kuake_sign.py
         

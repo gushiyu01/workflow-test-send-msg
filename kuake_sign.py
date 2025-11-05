@@ -13,9 +13,9 @@ import os
 # corp_secret = 'ujWgFTJoozit4uPZdLGrmWZgzrxGG7rJOkNY-bTXzHE'
 # agent_id = '1000002'
     
-corp_id = os.getenv("AGENTID")
+corp_id = os.getenv("AGENT_ID")
 corp_secret = os.getenv("SECRET")
-agent_id = os.getenv("AGENTID")
+agent_id = os.getenv("ID")
 print(11111)
 print(corp_id)
 print(corp_secret)
