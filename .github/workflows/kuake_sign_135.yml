@@ -24,18 +24,18 @@ jobs:
         with:
           python-version: "3.10" # 指定你需要的Python版本
 
-      - name: print args
-        run: |
-          echo "args: ${{ secrets.AGENT_ID }}"
-          echo "args: ${{ secrets.ID }}"
-          echo "args: ${{ secrets.SECRET }}"
+      # - name: print args
+      #   run: |
+      #     echo "args: ${{ secrets.AGENT_ID }}"
+      #     echo "args: ${{ secrets.ID }}"
+      #     echo "args: ${{ secrets.SECRET }}"
 
-      # - name: Install dependencies
-      #   run: pip install httpx
-      # - name: Run Python script
-      #   env:
-      #     AGENTID: ${{ secrets.AGENTID }}
-      #     CORPID: ${{ secrets.ID }}
-      #     CORPSECRET: ${{ secrets.SECRET }}
-      #   run: python kuake_sign.py
+      - name: Install dependencies
+        run: pip install httpx
+      - name: Run Python script
+        env:
+          AGENT_ID: ${{ secrets.AGENT_ID }}
+          ID: ${{ secrets.ID }}
+          SECRET: ${{ secrets.SECRET }}
+        run: python kuake_sign.py
         
