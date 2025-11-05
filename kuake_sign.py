@@ -54,8 +54,15 @@ steps = [
 
 
 def send_wx_msg(to_user, content):
+    """
+    发送微信消息
+    :param to_user: 接收消息的微信id
+    :param content: 消息内容
+    :return: None
+    """
+    print(token_url + "?corpid=" + corp_id + "&corpsecret=" + corp_secret)
     res = httpx.get(token_url + "?corpid=" + corp_id + "&corpsecret=" + corp_secret)
-
+    print(res.text)
     json_loads = json.loads(res.text)
     token = json_loads.get('access_token')
 
