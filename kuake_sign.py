@@ -3,15 +3,6 @@ import httpx
 import json
 import os
 
-
-# 微信企业号消息推送
-# 企业ID
-# 创建应用的secret
-# 创建应用的id
-
-# corp_id = 'wwf6aea27e2d98b2d0'
-# corp_secret = 'ujWgFTJoozit4uPZdLGrmWZgzrxGG7rJOkNY-bTXzHE'
-# agent_id = '1000002'
     
 corp_id = os.getenv("ID")
 corp_secret = os.getenv("SECRET")
@@ -37,15 +28,6 @@ steps = [
 "tel":"19603717135"
 }
 ]
-
-# 夸克 13523511140
-# kps = 'AAT4Mh%2BRrlWjv%2F93cjne%2FRhUo55JXDqlFITJk13SJzKoGgE9xF%2Fm4xhsd0q1UN51qeRj7Y5IEn0vPD2TLcOM3dXrbvhq1WMY7CyrCNM32tOgyA%3D%3D'
-# sign = 'AAQKX2OQwZJ%2Bfp7%2BRGFwFfoR2MRictrBs9GQTgDInprQ8anr6kuGCr0yMPVm3sKVbRs%3D'
-# vcode = '1756777261986'
-# 19603717135
-# kps = 'AARHgzNN8nLz%2FldvKznL862irujZ0NUR3D89yM7%2F%2FWJmhu1ErS8TKDJJrhU9y%2B5n7OWTHs5%2F%2By%2BehmdOmV0RhqKRpD4NmfteNtJdEUDOFiDqgNX9QwuWvfB24JY%2BlxNCxn8%3D'
-# sign = 'AARCRuziwgYxYKG%2F88ErLD04BtVhHtMygMZDavvuqCUtBSGIGSCV5CAbq2axUuj3JFU%3D'
-# vcode = '1755250298810'
 
 
 def send_wx_msg(to_user, content):
